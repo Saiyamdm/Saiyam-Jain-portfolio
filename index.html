@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiyam Jain | Social Media, SEO, Web Dev & Ads</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            800: '#292524',
+                            900: '#1c1917',
+                        },
+                        amber: {
+                            600: '#d97706',
+                            700: '#b45309',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 400px; max-height: 450px; }
+        @media (max-width: 640px) { .chart-container { height: 300px; max-height: 350px; } }
+
+        .process-step { transition: all 0.3s ease; cursor: pointer; }
+        .process-step.active { background-color: #1c1917; color: #fafaf9; transform: scale(1.05); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+
+        .portfolio-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        
+        /* Domain Badge Hover Effect */
+        .domain-badge { transition: all 0.3s ease; }
+        .domain-badge:hover { transform: translateY(-2px); border-color: #b45309; color: #b45309; background-color: #fffbeb; }
+    </style>
+
+    <!-- Microsoft Clarity Tracking Code -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "voyiwa9qyb");
+    </script>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-amber-600 selection:text-white relative">
+
+    <!-- Premium Agency Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-serif font-bold text-2xl tracking-tight text-stone-900">
+                SJ<span class="text-amber-600">.</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-bold text-stone-600 uppercase tracking-widest">
+                <a href="#about" class="hover:text-amber-600 transition-colors">Advantage</a>
+                <a href="#skills" class="hover:text-amber-600 transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-amber-600 transition-colors">Experience</a>
+                <a href="#portfolio" class="hover:text-amber-600 transition-colors">Projects</a>
+            </div>
+            <div class="hidden md:block">
+                <a href="#contact" class="px-6 py-2.5 bg-stone-900 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-amber-600 transition-all shadow-md hover:shadow-amber-600/30">
+                    Let's Connect
+                </a>
+            </div>
+            <!-- Mobile Menu Icon (Visual Only) -->
+            <div class="md:hidden text-2xl text-stone-900 cursor-pointer">
+                ☰
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <header class="relative max-w-6xl mx-auto px-4 py-24 md:pt-40 md:pb-32 overflow-hidden">
+        <!-- Decorative Background -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
+            <div class="absolute right-0 top-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 text-xs font-semibold tracking-wider text-amber-700 uppercase bg-white border border-amber-200 rounded-full shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                    Available for New Opportunities
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-6 text-stone-900">
+                    Full-Stack Digital Growth & <span class="italic text-amber-600 block mt-2">Technical Execution.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-stone-600 leading-relaxed mb-10 max-w-lg">
+                    I don't just manage social media—I build complete digital ecosystems. From viral content and SEO mastery to high-converting WordPress hubs and ROAS-driven ad campaigns.
+                </p>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="#portfolio" class="px-8 py-4 bg-stone-900 text-stone-50 font-bold rounded-full hover:bg-amber-600 hover:text-white transition-all shadow-xl shadow-stone-900/20">
+                        View Portfolio
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-white text-stone-900 font-bold rounded-full border border-stone-200 hover:border-stone-900 hover:bg-stone-50 transition-all shadow-sm">
+                        Let's Talk Growth
+                    </a>
+                </div>
+                
+                <!-- Prominent Top Social Links -->
+                <div class="flex items-center gap-6 pt-6 border-t border-stone-200/60 max-w-md">
+                    <span class="text-xs font-bold text-stone-400 uppercase tracking-widest">Explore:</span>
+                    <a href="https://www.linkedin.com/in/saiyam-jainn/" target="_blank" class="group flex items-center gap-2 text-stone-600 hover:text-[#0A66C2] font-bold transition-colors">
+                        <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/1fzE4OH6cfykE1CFsFnh7lIPr-QJ6rt2j" target="_blank" class="group flex items-center gap-2 text-stone-600 hover:text-amber-600 font-bold transition-colors">
+                        <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M21.5 5.5H13L11.5 3.5H2.5C1.1 3.5 0 4.6 0 6v12c0 1.4 1.1 2.5 2.5 2.5h19c1.4 0 2.5-1.1 2.5-2.5v-10c0-1.4-1.1-2.5-2.5-2.5z"/></svg>
+                        Full Drive Portfolio
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:block relative">
+                <!-- Abstract Premium Graphic -->
+                <div class="relative w-full aspect-square">
+                    <div class="absolute top-10 left-10 w-72 h-72 bg-amber-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-pulse"></div>
+                    <div class="absolute bottom-10 right-10 w-72 h-72 bg-stone-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-pulse" style="animation-delay: 2s;"></div>
+                    
+                    <div class="relative h-full w-full flex flex-col items-center justify-center">
+                        <div class="w-80 bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl z-20 transform hover:-translate-y-2 transition-transform duration-500">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-xl">🚀</div>
+                                <div>
+                                    <div class="font-bold text-stone-900">Paid & Organic Scaling</div>
+                                    <div class="text-xs text-stone-500">High-Budget Ad Management</div>
+                                </div>
+                            </div>
+                            <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden mb-4">
+                                <div class="w-4/5 h-full bg-amber-600 rounded-full"></div>
+                            </div>
+                            <div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
+                                <div class="w-3/5 h-full bg-stone-800 rounded-full"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -left-4 w-48 bg-stone-900 text-white p-6 rounded-2xl shadow-xl z-30">
+                            <div class="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">Peak Monthly Reach</div>
+                            <div class="font-serif text-3xl text-amber-500">15M+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section: The Fit -->
+    <section id="about" class="bg-white py-20 border-y border-stone-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="mb-12 max-w-2xl">
+                <h2 class="text-3xl font-serif font-bold mb-4">The Multi-Disciplinary Advantage</h2>
+                <p class="text-stone-600 leading-relaxed mb-6">
+                    The modern digital landscape demands more than just posting. It requires a professional who can attract, rank, convert, and scale. 
+                </p>
+                
+                <p class="text-stone-600 leading-relaxed">
+                    Here is my 4-pillar approach to digital growth:
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-stone-50 p-6 rounded-lg shadow-sm border border-stone-100">
+                    <div class="text-3xl mb-4">📱</div>
+                    <h3 class="text-lg font-bold mb-3">Social Media Executive</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Expert in managing high-volume content operations, daily Facebook page publishing, and meme-led community building.</p>
+                </div>
+                <div class="bg-stone-50 p-6 rounded-lg shadow-sm border border-stone-100">
+                    <div class="text-3xl mb-4">📈</div>
+                    <h3 class="text-lg font-bold mb-3">Performance & Analytics</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Data-driven execution tracking reach, views, and engagement metrics via structured trackers to optimize posting schedules.</p>
+                </div>
+                <div class="bg-stone-50 p-6 rounded-lg shadow-sm border border-stone-100">
+                    <div class="text-3xl mb-4">💻</div>
+                    <h3 class="text-lg font-bold mb-3">WordPress Developer</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Building lightning-fast e-commerce and business hubs using Astra, Woostify, and GeneratePress with optimized site speed.</p>
+                </div>
+                <div class="bg-stone-50 p-6 rounded-lg shadow-sm border border-stone-100">
+                    <div class="text-3xl mb-4">🔍</div>
+                    <h3 class="text-lg font-bold mb-3">SEO & Paid Marketing</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Mastering on-page SEO, local search visibility (Google Business Profiles), and supporting Meta Ads for lead generation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Skills Matrix & 18 Domains -->
+    <section id="skills" class="py-20 bg-stone-50 border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Competency Radar -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm order-2 md:order-1">
+                    <div class="chart-container">
+                        <canvas id="skillsRadar"></canvas>
+                    </div>
+                </div>
+                
+                <!-- The T-Shaped Marketer Content -->
+                <div class="order-1 md:order-2">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4 text-stone-900">The T-Shaped Marketer</h2>
+                    <p class="text-stone-600 leading-relaxed mb-8">
+                        A modern Senior Marketer must possess deep expertise in scaling revenue combined with a broad understanding of the entire digital ecosystem. I have comprehensively mastered <strong>18 core domains of digital marketing</strong> to ensure holistic brand growth.
+                    </p>
+                    
+                    <!-- The 18 Domains Grid -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">SEO Optimization</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">SMM Strategy</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Content Marketing</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Performance Ads (PPC)</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Email Automations</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Influencer Marketing</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Affiliate Networks</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Data Analytics (GA4)</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">CRO (Conv. Rate)</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Local SEO / GBP</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Funnel Strategy (TOFU/BOFU)</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Video Marketing</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Web Dev (WordPress)</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Competitor Analysis</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Community Building</span>
+                        <span class="domain-badge px-3 py-1.5 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-md cursor-default shadow-sm">Mobile App Marketing</span>
+                        <span class="domain-badge px-3 py-1.5 bg-amber-100 border border-amber-300 text-amber-800 text-xs font-bold rounded-md cursor-default shadow-sm">Meme & Viral Scaling</span>
+                    </div>
+
+                    <!-- Tools & Platforms based on Resume -->
+                    <div class="pt-6 border-t border-stone-200">
+                        <h3 class="text-xs font-bold text-stone-500 uppercase tracking-widest mb-4">Tools & Platforms Mastery</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="flex items-center gap-1 text-sm font-semibold text-stone-800"><span class="text-amber-600 text-lg">•</span> GA4 & Search Console</span>
+                            <span class="flex items-center gap-1 text-sm font-semibold text-stone-800"><span class="text-amber-600 text-lg">•</span> Meta Ads Manager</span>
+                            <span class="flex items-center gap-1 text-sm font-semibold text-stone-800"><span class="text-amber-600 text-lg">•</span> WordPress & Elementor</span>
+                            <span class="flex items-center gap-1 text-sm font-semibold text-stone-800"><span class="text-amber-600 text-lg">•</span> SEMrush</span>
+                            <span class="flex items-center gap-1 text-sm font-semibold text-stone-800"><span class="text-amber-600 text-lg">•</span> Google Gemini / AI Tools</span>
+                            <span class="flex items-center gap-1 text-sm font-semibold text-stone-800"><span class="text-amber-600 text-lg">•</span> Canva & Copywriting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Experience & Leadership -->
+    <section id="experience" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="mb-12 max-w-2xl">
+                <h2 class="text-3xl font-serif font-bold mb-4">Experience & Leadership</h2>
+                <p class="text-stone-600 leading-relaxed">
+                    A track record of managing high-volume content operations, performance tracking, and driving audience engagement across agency and corporate environments.
+                </p>
+            </div>
+            
+            <!-- Experience 1: Creativefuel -->
+            <div class="bg-stone-50 p-8 md:p-10 rounded-3xl shadow-sm border border-stone-200 relative overflow-hidden mb-8">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-amber-600/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-4 border-b border-stone-200 pb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-stone-900">Creativefuel</h3>
+                            <div class="text-amber-700 font-bold uppercase tracking-widest text-xs mt-2">Social Media Executive</div>
+                        </div>
+                        <div class="md:text-right">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-full shadow-sm mb-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                Feb 2025 - Present
+                            </div>
+                            <div class="text-xs text-stone-500 font-medium block">Onsite (Feb-May) &bull; Remote (June-Present)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold shrink-0">📈</div>
+                            <div>
+                                <h4 class="font-bold text-stone-900 mb-1">High-Volume Content & Analytics</h4>
+                                <p class="text-sm text-stone-600 leading-relaxed">Managed daily social media operations for multiple high-reach Facebook pages. Tracked reach, views, and engagement using structured real-time analytics trackers to optimize posting schedules.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold shrink-0">🚀</div>
+                            <div>
+                                <h4 class="font-bold text-stone-900 mb-1">Paid Workflows & Viral Scaling</h4>
+                                <p class="text-sm text-stone-600 leading-relaxed">Supported live and paid content workflows, resolving posting issues efficiently. Scaled a major Bollywood-centric page to a record-breaking <strong>15 Million reach</strong> in a single month.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 2: Digitalbanjao -->
+            <div class="bg-stone-50 p-8 md:p-10 rounded-3xl shadow-sm border border-stone-200 relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-4 border-b border-stone-200 pb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-stone-900">Digitalbanjao</h3>
+                            <div class="text-stone-500 font-bold uppercase tracking-widest text-xs mt-2">Digital Marketing Intern</div>
+                        </div>
+                        <div class="md:text-right">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-stone-200 text-stone-700 text-xs font-bold rounded-full shadow-sm mb-2">
+                                July 2025 - Oct 2025
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold shrink-0">💻</div>
+                            <div>
+                                <h4 class="font-bold text-stone-900 mb-1">WordPress Development & SEO</h4>
+                                <p class="text-sm text-stone-600 leading-relaxed">Developed e-commerce, blogging, and business websites using Astra, Woostify, and GeneratePress. Implemented on-page SEO, internal linking, and improved website speed by ~15% via image compression.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-700 font-bold shrink-0">🎯</div>
+                            <div>
+                                <h4 class="font-bold text-stone-900 mb-1">Local SEO & Lead Generation</h4>
+                                <p class="text-sm text-stone-600 leading-relaxed">Optimized Google Business Profiles to improve local search visibility (e.g., Cre8 The Unisex Salon). Assisted in Meta Ads campaigns for lead generation and conducted market competitor analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Interactive Methodology -->
+    <section id="process" class="bg-stone-900 text-stone-50 py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="mb-12 max-w-2xl">
+                <h2 class="text-3xl font-serif font-bold mb-4 text-white">Full-Stack Lifecycle Methodology</h2>
+                <p class="text-stone-400 leading-relaxed">
+                    How do I manage growth? Click through the stages below to explore my workflow for transforming traffic into measurable brand revenue.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <!-- Interactive Controls -->
+                <div class="lg:col-span-4 flex flex-col gap-3">
+                    <div class="process-step active bg-stone-800 p-4 rounded border border-stone-700" data-step="plan">
+                        <h4 class="font-bold text-lg">1. SEO & Audit</h4>
+                    </div>
+                    <div class="process-step bg-stone-800 p-4 rounded border border-stone-700" data-step="create">
+                        <h4 class="font-bold text-lg">2. Web Dev & UX</h4>
+                    </div>
+                    <div class="process-step bg-stone-800 p-4 rounded border border-stone-700" data-step="execute">
+                        <h4 class="font-bold text-lg">3. Social Content</h4>
+                    </div>
+                    <div class="process-step bg-stone-800 p-4 rounded border border-stone-700" data-step="analyze">
+                        <h4 class="font-bold text-lg">4. Performance Ads</h4>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content Display -->
+                <div class="lg:col-span-8">
+                    <div class="bg-stone-800 rounded-xl p-8 h-full border border-stone-700 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-600/10 rounded-bl-full -mr-4 -mt-4"></div>
+                        
+                        <div id="process-content" class="relative z-10 min-h-[200px] flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-amber-500 mb-4" id="process-title">1. Audit & SEO Strategy</h3>
+                            <p class="text-stone-300 text-lg leading-relaxed" id="process-text">
+                                Everything starts with data. I conduct deep-dive technical SEO audits, keyword research, and competitor analysis to map out a strategic blueprint before spending a single dollar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Strategic Assets (Portfolio) -->
+    <section id="portfolio" class="py-20 bg-stone-100 border-t border-stone-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="mb-12 max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl font-serif font-bold mb-4">Strategic Assets & Case Studies</h2>
+                <p class="text-stone-600 leading-relaxed">
+                    Beyond daily execution, I build comprehensive strategic assets. These projects showcase my technical versatility and ability to handle high-stakes agency requirements.
+                </p>
+            </div>
+
+            <!-- PROJECTS GRID -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <a href="https://saiyamdm.github.io/forensic-infographic/" target="_blank" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
+                    <div class="h-52 bg-stone-900 overflow-hidden relative">
+                        <img src="project1.jpeg" alt="Forensic Science Audit" class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-xs font-bold text-amber-600 uppercase mb-2">Social & SEO Audit</div>
+                        <h3 class="text-xl font-bold mb-2 text-stone-900">Forensic Science Strategy</h3>
+                        <p class="text-stone-600 text-sm mb-4">
+                            A deep-dive social media audit and infographic roadmap created to identify niche audience gaps.
+                        </p>
+                        <div class="text-amber-700 font-medium text-sm flex items-center mt-auto">
+                            View Infographic Strategy <span class="group-hover:translate-x-1 transition-transform ml-1">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://saiyamdm.github.io/velorona-strategy/" target="_blank" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
+                    <div class="h-52 bg-stone-900 overflow-hidden relative">
+                        <img src="project2.jpeg" alt="Velorona Strategy" class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-xs font-bold text-amber-600 uppercase mb-2">Brand Strategy</div>
+                        <h3 class="text-xl font-bold mb-2 text-stone-900">Velorona Strategy Task</h3>
+                        <p class="text-stone-600 text-sm mb-4">
+                            A comprehensive strategic deep-dive developed to prove my ability to deliver under strict agency-level standards.
+                        </p>
+                        <div class="text-amber-700 font-medium text-sm flex items-center mt-auto">
+                            View Brand Strategy <span class="group-hover:translate-x-1 transition-transform ml-1">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="https://shop.digisaiyam.shop/" target="_blank" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
+                    <div class="h-52 bg-stone-100 overflow-hidden relative border-b border-stone-200">
+                        <img src="project3.jpeg" alt="WordPress Conversion Hub" class="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=800';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/10 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="text-xs font-bold text-amber-600 uppercase mb-2">Web Development</div>
+                        <h3 class="text-xl font-bold mb-2 text-stone-900">Conversion UX Hub</h3>
+                        <p class="text-stone-600 text-sm mb-4">
+                            A functional WordPress eCommerce site engineered to master the user journey, maximizing the transition from a social media click to web conversion.
+                        </p>
+                        <div class="text-amber-700 font-medium text-sm flex items-center mt-auto">
+                            Visit Live Website <span class="group-hover:translate-x-1 transition-transform ml-1">→</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Contact Section -->
+    <section id="contact" class="py-32 bg-stone-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-5xl md:text-7xl font-serif font-bold mb-8 italic text-amber-500">Let's build something.</h2>
+            <p class="text-xl text-stone-400 mb-12 max-w-2xl mx-auto">
+                Ready to elevate your digital presence? Based in Ashoknagar, Madhya Pradesh. I am currently open for full-time opportunities and freelance projects. Let's discuss how we can drive real growth together.
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-16">
+                <a href="mailto:saiyamj134@gmail.com" class="px-10 py-5 bg-amber-600 text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-xl shadow-amber-900/50 flex items-center gap-3">
+                    <span class="text-xl">✉️</span> saiyamj134@gmail.com
+                </a>
+                <a href="tel:+916265494458" class="px-10 py-5 bg-white text-stone-900 font-bold rounded-full hover:bg-stone-200 transition-all shadow-xl flex items-center gap-3">
+                    <span class="text-xl">📞</span> +91 6265494458
+                </a>
+            </div>
+            
+            <!-- Massive Interactive Social Cards -->
+            <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <a href="https://www.linkedin.com/in/saiyam-jainn/" target="_blank" class="group relative overflow-hidden bg-stone-800/80 backdrop-blur p-8 rounded-2xl border border-stone-700 hover:border-[#0A66C2] transition-all text-left shadow-lg hover:shadow-[#0A66C2]/20 hover:-translate-y-1">
+                    <div class="absolute -top-4 -right-4 p-6 opacity-5 group-hover:opacity-20 transition-opacity text-[#0A66C2]">
+                        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 relative z-10">LinkedIn</h3>
+                    <p class="text-stone-400 text-sm relative z-10 group-hover:text-stone-300 transition-colors">Connect for daily insights & networking.</p>
+                    <div class="mt-8 inline-flex items-center gap-2 text-[#0A66C2] font-bold text-sm relative z-10">
+                        Connect Now <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                </a>
+                
+                <a href="https://drive.google.com/drive/folders/1fzE4OH6cfykE1CFsFnh7lIPr-QJ6rt2j" target="_blank" class="group relative overflow-hidden bg-stone-800/80 backdrop-blur p-8 rounded-2xl border border-stone-700 hover:border-amber-500 transition-all text-left shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1">
+                    <div class="absolute -top-4 -right-4 p-6 opacity-5 group-hover:opacity-20 transition-opacity text-amber-500">
+                         <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M21.5 5.5H13L11.5 3.5H2.5C1.1 3.5 0 4.6 0 6v12c0 1.4 1.1 2.5 2.5 2.5h19c1.4 0 2.5-1.1 2.5-2.5v-10c0-1.4-1.1-2.5-2.5-2.5z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Google Drive</h3>
+                    <p class="text-stone-400 text-sm relative z-10 group-hover:text-stone-300 transition-colors">Access my complete archive of case studies.</p>
+                    <div class="mt-8 inline-flex items-center gap-2 text-amber-500 font-bold text-sm relative z-10">
+                        Access Portfolio <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Agency Footer with Policies -->
+    <footer class="bg-stone-950 text-stone-400 pt-20 pb-10 border-t border-stone-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Footer Top Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-stone-800/60 pb-16">
+                <!-- Brand Col -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="font-serif text-4xl font-bold text-white mb-6">SJ<span class="text-amber-600">.</span></div>
+                    <p class="text-stone-400 leading-relaxed max-w-md text-sm">
+                        A Full-Stack Digital Strategist specializing in building complete digital ecosystems. Transforming raw traffic into measurable brand revenue through SEO, web development, and performance marketing.
+                    </p>
+                </div>
+                <!-- Links Col -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Explore</h4>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a href="#about" class="hover:text-amber-500 transition-colors flex items-center gap-2"><span class="text-stone-700">―</span> The Advantage</a></li>
+                        <li><a href="#skills" class="hover:text-amber-500 transition-colors flex items-center gap-2"><span class="text-stone-700">―</span> Competency Matrix</a></li>
+                        <li><a href="#portfolio" class="hover:text-amber-500 transition-colors flex items-center gap-2"><span class="text-stone-700">―</span> Strategic Assets</a></li>
+                        <li><a href="#contact" class="hover:text-amber-500 transition-colors flex items-center gap-2"><span class="text-stone-700">―</span> Get In Touch</a></li>
+                    </ul>
+                </div>
+                <!-- Legal Col -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Legal & Policies</h4>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><button onclick="openPolicy('terms')" class="hover:text-amber-500 transition-colors flex items-center gap-2 text-left"><span class="text-stone-700">―</span> Terms & Conditions</button></li>
+                        <li><button onclick="openPolicy('privacy')" class="hover:text-amber-500 transition-colors flex items-center gap-2 text-left"><span class="text-stone-700">―</span> Privacy Policy</button></li>
+                        <li><button onclick="openPolicy('rules')" class="hover:text-amber-500 transition-colors flex items-center gap-2 text-left"><span class="text-stone-700">―</span> Rules & Regulations</button></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs uppercase tracking-widest text-stone-500">
+                <div>
+                    © 2026 SAIYAM JAIN. ALL RIGHTS RESERVED.
+                </div>
+                <div class="flex items-center gap-2 font-bold text-amber-600 bg-amber-600/10 px-4 py-2 rounded-full border border-amber-600/20">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Available for Remote / Full-Time
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Policy Modals (Hidden by default) -->
+    <div id="policy-modal" class="fixed inset-0 z-[100] bg-stone-900/80 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white text-stone-800 max-w-2xl w-full max-h-[80vh] overflow-y-auto rounded-3xl shadow-2xl border border-stone-200 transform scale-95 transition-transform duration-300 p-8 md:p-12 relative" id="policy-content-box">
+            
+            <button onclick="closePolicy()" class="absolute top-6 right-6 w-10 h-10 bg-stone-100 text-stone-500 hover:bg-stone-900 hover:text-white rounded-full flex items-center justify-center transition-colors font-bold text-xl">
+                ×
+            </button>
+
+            <div id="policy-terms" class="policy-section hidden">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-stone-900">Terms & Conditions</h2>
+                <div class="space-y-4 text-sm text-stone-600 leading-relaxed">
+                    <p><strong>1. Introduction</strong><br>Welcome to the digital portfolio of Saiyam Jain. By accessing this website, you agree to be bound by these Terms and Conditions of Use.</p>
+                    <p><strong>2. Intellectual Property</strong><br>All content, including but not limited to case studies, graphic designs, web codes, text, and strategic data presented on this site, is the exclusive intellectual property of Saiyam Jain unless otherwise stated. Unauthorized reproduction or distribution is strictly prohibited.</p>
+                    <p><strong>3. Use of Content</strong><br>The materials on this site are provided solely for the purpose of employment evaluation, freelance hiring assessment, and professional networking. They may not be used for commercial templates without explicit written consent.</p>
+                    <p><strong>4. Disclaimer</strong><br>The strategic mockups and data projections within the portfolio case studies (such as Velorona and Forensic Science) are for demonstrative purposes and do not represent actual live financial data of those respective brands.</p>
+                </div>
+            </div>
+
+            <div id="policy-privacy" class="policy-section hidden">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-stone-900">Privacy Policy</h2>
+                <div class="space-y-4 text-sm text-stone-600 leading-relaxed">
+                    <p><strong>1. Data Collection</strong><br>This portfolio is designed to respect visitor privacy. We do not collect personally identifiable information (PII) through contact forms on this site; all communication is routed directly via secure email clients or verified LinkedIn profiles.</p>
+                    <p><strong>2. Analytics & Tracking</strong><br>To ensure optimal user experience and portfolio performance, this site utilizes Microsoft Clarity. This tool captures anonymous usage metrics (such as scroll depth and click patterns) to help improve the site's design. No sensitive personal data is recorded.</p>
+                    <p><strong>3. Third-Party Links</strong><br>This portfolio contains external links to GitHub, Google Drive, and LinkedIn. Once you leave this site, our privacy policy no longer applies, and we encourage you to read the privacy statements of those respective platforms.</p>
+                </div>
+            </div>
+
+            <div id="policy-rules" class="policy-section hidden">
+                <h2 class="text-3xl font-serif font-bold mb-6 text-stone-900">Rules & Regulations</h2>
+                <div class="space-y-4 text-sm text-stone-600 leading-relaxed">
+                    <p><strong>1. Professional Conduct</strong><br>Any communication initiated through the contact methods provided on this site must remain professional and directly related to employment opportunities, freelance contracts, or digital strategy consulting.</p>
+                    <p><strong>2. Code Integrity</strong><br>Recruiters and developers are welcome to inspect the source code of this portfolio. However, cloning the exact visual identity, layout, and copy for competitive personal portfolios is a violation of these regulations.</p>
+                    <p><strong>3. Updates to Policies</strong><br>Saiyam Jain reserves the right to modify these rules and policies at any time to reflect the latest professional standards. Changes will be updated immediately within this digital hub.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 pt-6 border-t border-stone-100 flex justify-end">
+                <button onclick="closePolicy()" class="px-8 py-3 bg-stone-900 text-white font-bold rounded-full hover:bg-amber-600 transition-colors text-sm">
+                    Acknowledge & Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Policy Modal Logic ---
+        function openPolicy(type) {
+            const modal = document.getElementById('policy-modal');
+            const contentBox = document.getElementById('policy-content-box');
+            
+            // Hide all sections first
+            document.querySelectorAll('.policy-section').forEach(el => el.classList.add('hidden'));
+            
+            // Show requested section
+            document.getElementById('policy-' + type).classList.remove('hidden');
+            
+            // Animate In
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                contentBox.classList.remove('scale-95');
+            }, 10);
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePolicy() {
+            const modal = document.getElementById('policy-modal');
+            const contentBox = document.getElementById('policy-content-box');
+            
+            // Animate Out
+            modal.classList.add('opacity-0');
+            contentBox.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Restore body scroll
+            }, 300);
+        }
+
+        // Close modal on outside click
+        document.getElementById('policy-modal').addEventListener('click', function(e) {
+            if (e.target === this) closePolicy();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Chart.js Implementation for Competency Radar
+            const ctx = document.getElementById('skillsRadar').getContext('2d');
+            
+            Chart.defaults.font.family = "'Inter', 'system-ui', 'sans-serif'";
+            Chart.defaults.color = '#57534e'; 
+
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Social Media Mgmt',
+                        'Performance Ads',
+                        'WordPress Dev',
+                        'SEO (On/Off Page)',
+                        'Conversion UX',
+                        'Data Analytics'
+                    ],
+                    datasets: [{
+                        label: 'Proficiency Level',
+                        data: [95, 88, 90, 92, 85, 90],
+                        backgroundColor: 'rgba(217, 119, 6, 0.2)', 
+                        borderColor: 'rgba(217, 119, 6, 1)',
+                        pointBackgroundColor: '#1c1917', 
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(217, 119, 6, 1)',
+                        borderWidth: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, 
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.05)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                            pointLabels: {
+                                font: { size: 11, weight: '600' },
+                                callback: function(val, index) {
+                                    return val.length > 16 ? val.match(/.{1,16}(\s|$)/g) : val;
+                                }
+                            },
+                            ticks: { display: false, min: 0, max: 100 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#1c1917',
+                            padding: 12,
+                            cornerRadius: 4,
+                            callbacks: {
+                                label: function(context) { return context.label + ': ' + context.raw + '%'; }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 2. Interactive Process Logic (Vanilla JS)
+            const processData = {
+                plan: {
+                    title: "1. Audit & SEO Strategy",
+                    text: "Everything starts with data. I conduct deep-dive technical SEO audits, keyword research, and competitor analysis to map out a strategic blueprint before spending a single dollar."
+                },
+                create: {
+                    title: "2. Web Dev & UX Design",
+                    text: "Building the destination. I develop blazing-fast WordPress sites optimized for search engines and designed specifically to guide users seamlessly from the landing page to checkout."
+                },
+                execute: {
+                    title: "3. Social Media & Viral Content",
+                    text: "Fueling the top of the funnel. I execute scroll-stopping organic content, leveraging meme-marketing and luxury storytelling to build a loyal, engaged community."
+                },
+                analyze: {
+                    title: "4. Performance Marketing & Scale",
+                    text: "Pouring gas on what works. I deploy data-driven paid ad campaigns (Meta/Google), constantly A/B testing and optimizing for the lowest CAC and highest ROAS."
+                }
+            };
+
+            const steps = document.querySelectorAll('.process-step');
+            const titleEl = document.getElementById('process-title');
+            const textEl = document.getElementById('process-text');
+
+            steps.forEach(step => {
+                step.addEventListener('click', function() {
+                    steps.forEach(s => {
+                        s.classList.remove('active');
+                        s.classList.add('bg-stone-800');
+                        s.classList.remove('bg-stone-900');
+                    });
+                    
+                    this.classList.add('active');
+                    this.classList.remove('bg-stone-800');
+                    
+                    const key = this.getAttribute('data-step');
+                    
+                    textEl.style.opacity = 0;
+                    titleEl.style.opacity = 0;
+                    
+                    setTimeout(() => {
+                        titleEl.innerText = processData[key].title;
+                        textEl.innerText = processData[key].text;
+                        textEl.style.opacity = 1;
+                        titleEl.style.opacity = 1;
+                        textEl.style.transition = "opacity 0.3s ease";
+                        textEl.style.transition = "opacity 0.3s ease";
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
