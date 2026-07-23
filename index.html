@@ -3,34 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#1c1917">
+
+    <!-- Security: CSP Tag -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://www.clarity.ms https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; frame-ancestors 'self'; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1917'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-weight='700' font-size='28' fill='%23fafaf9' text-anchor='middle'%3ESJ%3Ctspan fill='%23d97706'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+
     <title>Saiyam Jain | AI Digital Marketer, Social Media & Content Strategy</title>
-    
-    <!-- Tailwind CSS -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://saiyamdm.github.io/Saiyam-Jain-portfolio/">
+
+    <!-- Open Graph / Meta Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saiyamdm.github.io/Saiyam-Jain-portfolio/">
+    <meta property="og:title" content="Saiyam Jain | AI Digital Marketer, Social Media & Content Strategy">
+    <meta property="og:description" content="I leverage AI tools (Claude, ChatGPT, Gemini) and prompt engineering to scale content operations, run high-impact social campaigns, and build high-converting digital ecosystems.">
+    <meta property="og:image" content="https://saiyamdm.github.io/Saiyam-Jain-portfolio/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Saiyam Jain Portfolio">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Saiyam Jain | AI Digital Marketer">
+    <meta name="twitter:description" content="AI-driven growth and smart execution — social media, content strategy, and performance marketing.">
+    <meta name="twitter:image" content="https://saiyamdm.github.io/Saiyam-Jain-portfolio/og-image.png">
+    <meta name="description" content="Saiyam Jain — AI-powered digital marketer specializing in social media management, content strategy, and performance campaigns.">
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Saiyam Jain",
+      "jobTitle": "AI Digital Marketer & Content Strategist",
+      "url": "https://saiyamdm.github.io/Saiyam-Jain-portfolio/",
+      "sameAs": [
+        "https://www.linkedin.com/in/saiyam-jainn/"
+      ],
+      "knowsAbout": ["AI Prompting", "Social Media Marketing", "Performance Ads", "Google Analytics 4", "SEO"]
+    }
+    </script>
+
+    <!-- Tailwind CSS & Chart.js -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        stone: {
-                            50: '#fafaf9',
-                            100: '#f5f5f4',
-                            200: '#e7e5e4',
-                            800: '#292524',
-                            900: '#1c1917',
-                        },
-                        amber: {
-                            600: '#d97706',
-                            700: '#b45309',
-                        }
+                        stone: { 50: '#fafaf9', 100: '#f5f5f4', 200: '#e7e5e4', 800: '#292524', 900: '#1c1917' },
+                        amber: { 600: '#d97706', 700: '#b45309' }
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        serif: ['Playfair Display', 'serif']
                     }
                 }
             }
@@ -42,18 +75,18 @@
     <style>
         body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
         h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
-        
         .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 400px; max-height: 450px; }
         @media (max-width: 640px) { .chart-container { height: 300px; max-height: 350px; } }
-
         .process-step { transition: all 0.3s ease; cursor: pointer; }
         .process-step.active { background-color: #1c1917; color: #fafaf9; transform: scale(1.05); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-
         .portfolio-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        
         .domain-badge { transition: all 0.3s ease; }
         .domain-badge:hover { transform: translateY(-2px); border-color: #b45309; color: #b45309; background-color: #fffbeb; }
+        .mobile-nav { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .mobile-nav.open { max-height: 320px; }
+        .skip-link { position: absolute; left: -9999px; top: 0; z-index: 100; background: #1c1917; color: #fafaf9; padding: 12px 20px; border-radius: 0 0 8px 0; font-weight: 700; }
+        .skip-link:focus { left: 0; }
     </style>
 
     <!-- Microsoft Clarity Tracking Code -->
@@ -64,15 +97,26 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "voyiwa9qyb");
     </script>
+
+    <!-- Google Analytics 4 (Fixed with your ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX2D1DTZW7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-SX2D1DTZW7');
+    </script>
 </head>
 <body class="bg-stone-50 text-stone-800 antialiased selection:bg-amber-600 selection:text-white relative">
+
+    <a href="#main" class="skip-link">Skip to main content</a>
 
     <!-- Premium Agency Navigation -->
     <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="font-serif font-bold text-2xl tracking-tight text-stone-900">
+            <a href="#" class="font-serif font-bold text-2xl tracking-tight text-stone-900">
                 SJ<span class="text-amber-600">.</span>
-            </div>
+            </a>
             <div class="hidden md:flex gap-8 text-sm font-bold text-stone-600 uppercase tracking-widest">
                 <a href="#about" class="hover:text-amber-600 transition-colors">Advantage</a>
                 <a href="#skills" class="hover:text-amber-600 transition-colors">AI & Skills</a>
@@ -84,13 +128,24 @@
                     Let's Connect
                 </a>
             </div>
-            <div class="md:hidden text-2xl text-stone-900 cursor-pointer">
-                ☰
+            <button id="navToggle" type="button" class="md:hidden text-2xl text-stone-900 leading-none" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+                <span id="navToggleIcon" aria-hidden="true">☰</span>
+            </button>
+        </div>
+        <div id="mobileNav" class="mobile-nav md:hidden bg-white border-t border-stone-200">
+            <div class="flex flex-col px-6 py-4 gap-4 text-sm font-bold text-stone-700 uppercase tracking-widest">
+                <a href="#about" class="hover:text-amber-600 transition-colors">Advantage</a>
+                <a href="#skills" class="hover:text-amber-600 transition-colors">AI & Skills</a>
+                <a href="#experience" class="hover:text-amber-600 transition-colors">Experience</a>
+                <a href="#portfolio" class="hover:text-amber-600 transition-colors">Projects</a>
+                <a href="#contact" class="px-6 py-3 bg-stone-900 text-white text-center rounded-full hover:bg-amber-600 transition-all">Let's Connect</a>
             </div>
         </div>
     </nav>
 
-    <!-- Enhanced Hero Section - AI Digital Marketer -->
+    <main id="main">
+
+    <!-- Enhanced Hero Section -->
     <header class="relative max-w-6xl mx-auto px-4 py-24 md:pt-40 md:pb-32 overflow-hidden">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
@@ -120,11 +175,11 @@
                 
                 <div class="flex items-center gap-6 pt-6 border-t border-stone-200/60 max-w-md">
                     <span class="text-xs font-bold text-stone-400 uppercase tracking-widest">Explore:</span>
-                    <a href="https://www.linkedin.com/in/saiyam-jainn/" target="_blank" class="group flex items-center gap-2 text-stone-600 hover:text-[#0A66C2] font-bold transition-colors">
+                    <a href="https://www.linkedin.com/in/saiyam-jainn/" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-stone-600 hover:text-[#0A66C2] font-bold transition-colors">
                         <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn
                     </a>
-                    <a href="https://drive.google.com/drive/folders/1fzE4OH6cfykE1CFsFnh7lIPr-QJ6rt2j?usp=drive_link" target="_blank" class="group flex items-center gap-2 text-stone-600 hover:text-amber-600 font-bold transition-colors">
+                    <a href="https://drive.google.com/drive/folders/1fzE4OH6cfykE1CFsFnh7lIPr-QJ6rt2j?usp=drive_link" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-stone-600 hover:text-amber-600 font-bold transition-colors">
                         <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M21.5 5.5H13L11.5 3.5H2.5C1.1 3.5 0 4.6 0 6v12c0 1.4 1.1 2.5 2.5 2.5h19c1.4 0 2.5-1.1 2.5-2.5v-10c0-1.4-1.1-2.5-2.5-2.5z"/></svg>
                         Google Drive
                     </a>
@@ -138,7 +193,7 @@
                     <div class="relative h-full w-full flex flex-col items-center justify-center">
                         <div class="w-80 bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl z-20 transform hover:-translate-y-2 transition-transform duration-500">
                             <div class="flex items-center gap-4 mb-6">
-                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-xl">🤖</div>
+                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-xl" aria-hidden="true">🤖</div>
                                 <div>
                                     <div class="font-bold text-stone-900">AI-Powered Content Scaling</div>
                                     <div class="text-xs text-stone-500">11M+ Reach Verified Growth</div>
@@ -177,22 +232,22 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-stone-50 p-6 rounded-lg shadow-sm border border-stone-100">
-                    <div class="text-3xl mb-4">⚡</div>
+                    <div class="text-3xl mb-4" aria-hidden="true">⚡</div>
                     <h3 class="text-lg font-bold mb-3">AI Content Operations</h3>
                     <p class="text-stone-600 text-sm leading-relaxed">Using Claude, ChatGPT, and Gemini to rapidly ideate hooks, accelerate research, and optimize copywriting for high engagement.</p>
                 </div>
                 <div class="bg-stone-50 p-6 rounded-lg shadow-sm border border-stone-100">
-                    <div class="text-3xl mb-4">📈</div>
+                    <div class="text-3xl mb-4" aria-hidden="true">📈</div>
                     <h3 class="text-lg font-bold mb-3">Viral Social Scaling</h3>
                     <p class="text-stone-600 text-sm leading-relaxed">Experienced in trend-jacking, meme marketing, and reel editing that drove 11M+ organic reach in a single month.</p>
                 </div>
                 <div class="bg-stone-50 p-6 rounded-lg shadow-sm border border-stone-100">
-                    <div class="text-3xl mb-4">💻</div>
+                    <div class="text-3xl mb-4" aria-hidden="true">💻</div>
                     <h3 class="text-lg font-bold mb-3">Web & Performance Ads</h3>
                     <p class="text-stone-600 text-sm leading-relaxed">Building responsive WordPress hubs (Astra, Elementor) and executing Meta Ads campaigns for qualified lead generation.</p>
                 </div>
                 <div class="bg-stone-50 p-6 rounded-lg shadow-sm border border-stone-100">
-                    <div class="text-3xl mb-4">🔍</div>
+                    <div class="text-3xl mb-4" aria-hidden="true">🔍</div>
                     <h3 class="text-lg font-bold mb-3">Data & SEO Analytics</h3>
                     <p class="text-stone-600 text-sm leading-relaxed">Rigorous performance tracking using Google Analytics 4, Search Console, and SEMrush to refine campaign funnels.</p>
                 </div>
@@ -337,11 +392,9 @@
                 </p>
             </div>
 
-            <!-- PROJECTS GRID -->
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
                 <!-- Project 1: WeHYB -->
-                <a href="https://saiyamdm.github.io/wehyb-copilot/" target="_blank" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
+                <a href="https://saiyamdm.github.io/wehyb-copilot/" target="_blank" rel="noopener noreferrer" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
                     <div class="h-48 bg-stone-900 overflow-hidden relative flex items-center justify-center p-6 text-center">
                         <div class="absolute inset-0 bg-gradient-to-br from-amber-600/20 to-stone-900"></div>
                         <span class="relative z-10 text-white font-serif font-bold text-xl">WeHYB AI Copilot</span>
@@ -358,8 +411,8 @@
                     </div>
                 </a>
 
-                <!-- Project 2: Viento Group Carousel -->
-                <div class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
+                <!-- Project 2: Viento Group (Fixed Card with Link) -->
+                <a href="https://drive.google.com/drive/folders/1fzE4OH6cfykE1CFsFnh7lIPr-QJ6rt2j?usp=drive_link" target="_blank" rel="noopener noreferrer" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
                     <div class="h-48 bg-stone-800 overflow-hidden relative flex items-center justify-center p-6 text-center">
                         <div class="absolute inset-0 bg-gradient-to-br from-stone-700 to-stone-900"></div>
                         <span class="relative z-10 text-white font-serif font-bold text-xl">Growth Mindset Carousel</span>
@@ -370,14 +423,14 @@
                         <p class="text-stone-600 text-sm mb-4">
                             Designed a 5-slide Instagram carousel from a live client brief featuring an original "Rejection Log" framework with complete caption and hashtag strategy.
                         </p>
-                        <div class="text-stone-400 font-medium text-sm flex items-center mt-auto">
-                            Client Brief Deliverable
+                        <div class="text-amber-700 font-medium text-sm flex items-center mt-auto">
+                            View Brief Deliverable <span class="group-hover:translate-x-1 transition-transform ml-1">→</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- Project 3: Forensic Science Audit -->
-                <a href="https://saiyamdm.github.io/forensic-infographic/" target="_blank" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
+                <a href="https://saiyamdm.github.io/forensic-infographic/" target="_blank" rel="noopener noreferrer" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
                     <div class="h-48 bg-stone-900 overflow-hidden relative flex items-center justify-center p-6 text-center">
                         <div class="absolute inset-0 bg-gradient-to-br from-amber-700/20 to-stone-900"></div>
                         <span class="relative z-10 text-white font-serif font-bold text-xl">Forensic Audit</span>
@@ -395,7 +448,7 @@
                 </a>
 
                 <!-- Project 4: Velorona Strategy -->
-                <a href="https://saiyamdm.github.io/velorona-strategy/" target="_blank" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
+                <a href="https://saiyamdm.github.io/velorona-strategy/" target="_blank" rel="noopener noreferrer" class="portfolio-card block bg-white rounded-xl overflow-hidden shadow-sm border border-stone-200 flex flex-col h-full group">
                     <div class="h-48 bg-stone-900 overflow-hidden relative flex items-center justify-center p-6 text-center">
                         <div class="absolute inset-0 bg-gradient-to-br from-amber-600/30 to-stone-900"></div>
                         <span class="relative z-10 text-white font-serif font-bold text-xl">Velorona Strategy</span>
@@ -411,7 +464,6 @@
                         </div>
                     </div>
                 </a>
-
             </div>
         </div>
     </section>
@@ -427,17 +479,17 @@
                 Ready to elevate your digital presence with AI-powered marketing? Based in Ashoknagar, Madhya Pradesh. Open for full-time opportunities and remote roles.
             </p>
             
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-16">
+            <address class="flex flex-col md:flex-row items-center justify-center gap-6 mb-16 not-italic">
                 <a href="mailto:saiyamj134@gmail.com" class="px-10 py-5 bg-amber-600 text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-xl shadow-amber-900/50 flex items-center gap-3">
-                    <span class="text-xl">✉️</span> saiyamj134@gmail.com
+                    <span class="text-xl" aria-hidden="true">✉️</span> saiyamj134@gmail.com
                 </a>
                 <a href="tel:+916265494458" class="px-10 py-5 bg-white text-stone-900 font-bold rounded-full hover:bg-stone-200 transition-all shadow-xl flex items-center gap-3">
-                    <span class="text-xl">📞</span> +91 6265494458
+                    <span class="text-xl" aria-hidden="true">📞</span> +91 6265494458
                 </a>
-            </div>
+            </address>
             
             <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                <a href="https://www.linkedin.com/in/saiyam-jainn/" target="_blank" class="group relative overflow-hidden bg-stone-800/80 backdrop-blur p-8 rounded-2xl border border-stone-700 hover:border-[#0A66C2] transition-all text-left shadow-lg hover:shadow-[#0A66C2]/20 hover:-translate-y-1">
+                <a href="https://www.linkedin.com/in/saiyam-jainn/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden bg-stone-800/80 backdrop-blur p-8 rounded-2xl border border-stone-700 hover:border-[#0A66C2] transition-all text-left shadow-lg hover:shadow-[#0A66C2]/20 hover:-translate-y-1">
                     <h3 class="text-2xl font-bold text-white mb-2 relative z-10">LinkedIn</h3>
                     <p class="text-stone-400 text-sm relative z-10 group-hover:text-stone-300 transition-colors">Connect for daily insights & networking.</p>
                     <div class="mt-8 inline-flex items-center gap-2 text-[#0A66C2] font-bold text-sm relative z-10">
@@ -445,7 +497,7 @@
                     </div>
                 </a>
                 
-                <a href="https://drive.google.com/drive/folders/1fzE4OH6cfykE1CFsFnh7lIPr-QJ6rt2j?usp=drive_link" target="_blank" class="group relative overflow-hidden bg-stone-800/80 backdrop-blur p-8 rounded-2xl border border-stone-700 hover:border-amber-500 transition-all text-left shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1">
+                <a href="https://drive.google.com/drive/folders/1fzE4OH6cfykE1CFsFnh7lIPr-QJ6rt2j?usp=drive_link" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden bg-stone-800/80 backdrop-blur p-8 rounded-2xl border border-stone-700 hover:border-amber-500 transition-all text-left shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1">
                     <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Google Drive Archive</h3>
                     <p class="text-stone-400 text-sm relative z-10 group-hover:text-stone-300 transition-colors">Access my complete archive of case studies.</p>
                     <div class="mt-8 inline-flex items-center gap-2 text-amber-500 font-bold text-sm relative z-10">
@@ -455,6 +507,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="bg-stone-950 text-stone-400 pt-20 pb-10 border-t border-stone-800 relative overflow-hidden">
@@ -470,6 +524,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Nav Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.getElementById('navToggle');
+            const navToggleIcon = document.getElementById('navToggleIcon');
+            const mobileNav = document.getElementById('mobileNav');
+
+            navToggle.addEventListener('click', () => {
+                const isOpen = mobileNav.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', String(isOpen));
+                navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+                navToggleIcon.textContent = isOpen ? '✕' : '☰';
+            });
+
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.setAttribute('aria-label', 'Open menu');
+                    navToggleIcon.textContent = '☰';
+                });
+            });
+        });
+    </script>
 
     <!-- Chart Script -->
     <script>
